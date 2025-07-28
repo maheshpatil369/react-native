@@ -1,83 +1,91 @@
-Prem ye tere liye data
+# 📱 **Offline Data Management Mobile App**
 
+A **Flutter-based mobile application** designed to manage and access work bundles efficiently, even in offline mode.  
+The app ensures **secure login**, **work assignment**, **data synchronization**, and **offline search** capabilities.
 
+---
 
+## 🚀 **Features**
+- 🔐 **Secure Login** with session token management
+- 🗂️ **Assign Work Bundles** dynamically based on district & taluka selection
+- 🔄 **Sync Data** to local device storage (SQLite) for offline access
+- 🔍 **Offline Search** to retrieve records without internet
+- 📲 **User-friendly UI** optimized for mobile field use
 
-<img width="595" height="900" alt="Login page only" src="https://github.com/user-attachments/assets/e0b38dd9-00ba-4702-b8f7-6571c50a7b0d" />
-Step 1: Login
-User opens the app for the first time.
+---
 
-They see the Login Screen.
+## 🏗️ **Workflow**
 
-They enter their Email and Password and tap Login.
+### ✅ **Step 1: Login**  
+![Login Screen](https://github.com/user-attachments/assets/e0b38dd9-00ba-4702-b8f7-6571c50a7b0d)  
 
-The app sends this information to the backend server for verification.
+1. User opens the app and sees the **Login Screen**.  
+2. Enters **Email** and **Password**, taps **Login**.  
+3. App verifies credentials with the backend.  
+4. Upon success, session token is saved, and user is redirected to the **Home Screen**.  
+5. User stays logged in until they log out manually.
 
-If successful, the app saves a session token, and the user is taken to the Home Screen. They won't have to log in again unless they log out.
+---
 
-<img width="1917" height="913" alt="Reference for Home page" src="https://github.com/user-attachments/assets/d614d89d-dc0d-4170-8ec8-ef7946740251" />
-![WhatsApp Image 2025-07-28 at 12 37 48_a6b319c6](https://github.com/user-attachments/assets/2f2af73e-02ae-4fa0-a761-3701ca554640)
+### ✅ **Step 2: Assign Work Bundles**  
+![Home Screen](https://github.com/user-attachments/assets/d614d89d-dc0d-4170-8ec8-ef7946740251)  
 
-Step 2: Assign Work Bundles
+1. On the **Home Dashboard**, user selects **District** from dropdown.  
+2. Relevant **Talukas** are fetched dynamically and shown in second dropdown.  
+3. User selects a Taluka and taps **Assign Bundle**.  
+4. App sends this information to the backend, assigning the selected bundle.  
+5. User can repeat the process to assign multiple bundles.
 
-The user is on the Home Screen (Dashboard).
+---
 
-They see a section to "Assign New Work Bundle".
+### ✅ **Step 3: Sync Data to Device**  
+![Data Management](https://github.com/user-attachments/assets/51ce549c-b263-4f55-9c05-c9d477c8fbb3)  
 
-They select a District from the first dropdown menu (e.g., "Amravati").
+1. User navigates to **Data Management** from the drawer menu.  
+2. List of all assigned bundles is displayed.  
+3. For each bundle, user taps **Sync to Device**.  
+4. App downloads all records from backend and stores them into **SQLite (local storage)**.  
+5. UI updates showing the number of records saved locally (e.g., *250 records on device*).
 
-The app automatically fetches and shows the relevant Talukas for that district in the second dropdown (e.g., "Achalpur", "Daryapur").
+---
 
-The user selects a Taluka (e.g., "Achalpur").
+## 🌐 **Phase 2: Offline Field Work**
 
-They tap the "Assign Bundle" button.
+When internet is unavailable, the app continues to work seamlessly.
 
-The app tells the backend to assign this "Amravati/Achalpur" bundle to this user.
+---
 
-The user can repeat this process to assign multiple work bundles.
+### ✅ **Step 4: Access & Search Data Offline**  
+![Offline Search](https://github.com/user-attachments/assets/f07b01f1-f5f3-40f7-a032-c5a44c1c00a4)  
 
+1. User opens the app (still logged in from previous session).  
+2. Goes to **Data Management Screen**.  
+3. Uses the **Search Bar** to type a person's Unique ID.  
+4. App queries the local SQLite database (no internet required).  
+5. Search results appear instantly, displaying the record details.
 
+---
 
-<img width="1919" height="907" alt="Reference for Data Mangement page" src="https://github.com/user-attachments/assets/51ce549c-b263-4f55-9c05-c9d477c8fbb3" />
+## 📂 **Additional Resources**
+- 📄 [Processed Records – Chhatrapati Sambhajinagar (Excel)](https://github.com/user-attachments/files/21467645/chhatrapati-sambhajinagar-processed-records-2025-07-26.xlsx)
 
-Step 3: Sync Data to Device
+---
 
-The user navigates to the Data Management Screen from the drawer menu.
+## 🛠️ **Tech Stack**
+- **Flutter** – Cross-platform mobile app development  
+- **Provider** – State management  
+- **SQLite** – Local database for offline mode  
+- **REST API** – Backend communication  
 
-They see a list of all their assigned bundles (e.g., "Amravati/Achalpur").
+---
 
-Next to each bundle, there is a "Sync to Device" button.
+## 🏆 **Key Highlights**
+- ✅ Fully **offline-capable**  
+- ✅ **Fast local search**  
+- ✅ **Secure authentication**  
+- ✅ Designed for **field use with unstable internet**
 
-The user taps this button for the "Amravati/Achalpur" bundle.
+---
 
-The app shows a loading indicator and starts downloading all the records for that bundle from the backend.
-
-After the download is complete, the app saves all the records into the local SQLite database on the phone.
-
-The screen updates to show how many records are now saved locally for that bundle (e.g., "250 records on device").
-
-Now, the user is fully prepared for field work.
-
-
-Phase 2: Offline Phase (Field Work)
-This is when the user is in a remote area with no internet connection.
-
-
-<img width="388" height="387" alt="ID search ke bad show hone wala record" src="https://github.com/user-attachments/assets/f07b01f1-f5f3-40f7-a032-c5a44c1c00a4" />
-
-Step 4: Access and Search Data Offline
-
-The user opens the app. They are already logged in.
-
-They go to the Data Management Screen.
-
-They need to find a person's details. They use the Search Bar at the top of the screen.
-
-They start typing the UniqueId of the person they are looking for.
-
-Crucially, the app searches the local SQLite database that was synced in Step 3. It does not need the internet for this.
-
-The search results appear on the screen instantly, showing all the details of the record.
-
-[chhatrapati-sambhajinagar-processed-records-2025-07-26.xlsx](https://github.com/user-attachments/files/21467645/chhatrapati-sambhajinagar-processed-records-2025-07-26.xlsx)
-
+## 📄 **License**
+This project is private and for official use only.
